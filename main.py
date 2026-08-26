@@ -35,7 +35,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 APP_VERSION = "1.5.5"
 PANEL_NAME = "Mashti"
 TELEGRAM_CONTACT = "https://t.me/MashtiPanel"
-OTA_REPO = "youdidking/stanngv2"
+OTA_REPO = "mashti124/mashti"
 OTA_HEADERS = {
     "Accept": "application/vnd.github+json",
     "User-Agent": f"StanNG-Panel/{APP_VERSION}",
