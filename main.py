@@ -652,7 +652,7 @@ def build_links(request: Request, db, ib) -> dict:
     sni = (db.get("settings") or {}).get("sni_override") or host
     port_tls = 443
 
-    vl_ws_tls = f"vless://{uuidv}@{host}:{port_tls}?encryption=none&security=tls&type=ws&host={quote(host)}&path={quote('/vl-ws', safe='/')}&sni={quote(sni)}&fp={fp}&alpn={quote(alpn, safe=',/')}#{quote(f'StanNG-{name}-VL-WS-TLS')}"
+    vl_ws_tls = f"vless://{uuidv}@{host}:{port_tls}?encryption=none&security=tls&type=ws&host={quote(host)}&path={quote('/vl-ws', safe='/')}&sni={quote(sni)}&fp={fp}&alpn={quote(alpn, safe=',/')}#{quote(f'Mashti-{name}-VL-WS-TLS')}"
 
     def make_vmess(port, tls_mode, remark):
         vm_json = {
@@ -663,8 +663,8 @@ def build_links(request: Request, db, ib) -> dict:
         b64 = base64.b64encode(json.dumps(vm_json).encode()).decode()
         return f"vmess://{b64}"
     
-    vm_ws_tls = make_vmess(port_tls, "tls", f"StanNG-{name}-VM-WS-TLS")
-    vl_xh_tls = f"vless://{uuidv}@{host}:{port_tls}?encryption=none&security=tls&type=xhttp&host={quote(host)}&path={quote('/vl-xhttp', safe='/')}&sni={quote(sni)}&fp={fp}&alpn=h2#{quote(f'StanNG-{name}-VL-XHTTP-TLS')}"
+    vm_ws_tls = make_vmess(port_tls, "tls", f"Mashti-{name}-VM-WS-TLS")
+    vl_xh_tls = f"vless://{uuidv}@{host}:{port_tls}?encryption=none&security=tls&type=xhttp&host={quote(host)}&path={quote('/vl-xhttp', safe='/')}&sni={quote(sni)}&fp={fp}&alpn=h2#{quote(f'Mashti-{name}-VL-XHTTP-TLS')}"
 
     st = inbound_status(ib)
     quota_gb = ib.get("quota_gb") or 0
@@ -672,7 +672,7 @@ def build_links(request: Request, db, ib) -> dict:
     quota_txt = f"{used_gb:.2f}/{quota_gb:g}GB" if quota_gb > 0 else f"{used_gb:.2f}GB used"
     days_txt = f"{st['days_left']}d left" if ib.get("expire_at") else "no expiry"
     status_remark = f"📊 {quota_txt} | ⏳ {days_txt}"
-    free_remark = "StanNG Multi-Protocol ❤️"
+    free_remark = "Mashti Multi-Protocol ❤️"
 
     dummy_uuid_status = "00000000-0000-0000-0000-000000000001"
     dummy_uuid_credit = "00000000-0000-0000-0000-000000000002"
