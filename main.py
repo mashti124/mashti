@@ -34,7 +34,7 @@ from colo_map import describe_colo
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 APP_VERSION = "1.5.5"
 PANEL_NAME = "Mashti"
-TELEGRAM_CONTACT = "https://t.me/rvivl"
+TELEGRAM_CONTACT = "https://t.me/MashtiPanel"
 OTA_REPO = "youdidking/stanngv2"
 OTA_HEADERS = {
     "Accept": "application/vnd.github+json",
